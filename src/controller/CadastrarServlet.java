@@ -28,11 +28,11 @@ public class CadastrarServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		final int ID = 1;
+
+		final String ID = "1";
 		String nome = request.getParameter("nome");
 		System.out.println("Nome: " + nome);
-		String endereco = request.getParameter("enderecoLoja");
+		String endereco = request.getParameter("endereco");
 		System.out.println("Endereço: " + endereco);
 		String email = request.getParameter("email");
 		System.out.println("Email: " + email);
@@ -42,11 +42,11 @@ public class CadastrarServlet extends HttpServlet {
 		System.out.println("Senha: " + senha);
 
 		Admin admin = new Admin();
+		System.out.println("PASSOU AQUI");
+		Services.createAdmin(ID, nome, senha, endereco, email, telefone);
+		this.requestDispatcher = request.getRequestDispatcher("admin.jsp");
+		request.getSession().setAttribute("admin", admin);
+		this.requestDispatcher.forward(request, response);
 
-		if (Services.createAdmin(ID,nome, senha, endereco, email, telefone) == true) {
-			this.requestDispatcher = request.getRequestDispatcher("admin.jsp");
-			request.getSession().setAttribute("admin", admin);
-			this.requestDispatcher.forward(request, response);
-		}
 	}
 }

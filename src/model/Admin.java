@@ -3,7 +3,7 @@ package model;
 
 public class Admin {
 	
-	public Integer id;
+	public String id;
 	public String nome;
 	public String senha;
 	public String enderecoLoja;
@@ -14,7 +14,7 @@ public class Admin {
 		
 	}
 	
-	public Admin (Integer id,String nome,String senha,String enderecoLoja,String email,String telefone) {
+	public Admin (String id,String nome,String senha,String enderecoLoja,String email,String telefone) {
 		setId(id);
 		setNome(nome);
 		setSenha(senha);
@@ -63,11 +63,11 @@ public class Admin {
 		this.telefone = telefone;
 	}
 	
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 }

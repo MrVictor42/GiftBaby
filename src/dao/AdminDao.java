@@ -26,32 +26,30 @@ public class AdminDao extends ConnectionFactory{
 	public static void insertAdmin(Admin admin) {
 		
 		try {
-			String query = "INSERT INTO Admin(registration,name,dateOfBirth,letterClass,room,turn,year,modalityCourse,scholarship) VALUES (?,?,?,?,?,?,?,?,?);";
+			String query = "INSERT INTO Admin(id,nome,endereco,email,telefone,senha) VALUES (?,?,?,?,?,?);";
 			if (connection == null){
 				AdminDao adminDao = new AdminDao();
 				connection = adminDao.getConexao();
 			}
 			PreparedStatement pstm = connection.prepareStatement(query);
-			pstm.setString(1, student.getRegistration());
-			pstm.setString(2, student.getName());
-			pstm.setString(3, student.getDataOfBirth());
-			pstm.setString(4, student.getLetterClass());
-			pstm.setString(5, student.getRoom());
-			pstm.setString(6, student.getTurn());
-			pstm.setString(7, student.getYear());
-			pstm.setString(8, student.getModalityCourse());
-			pstm.setString(9, student.getScholarship());
+			pstm.setString(1, admin.getId());
+			pstm.setString(2, admin.getNome());
+			pstm.setString(3, admin.getEnderecoLoja());
+			pstm.setString(4, admin.getEmail());
+			pstm.setString(5, admin.getTelefone());
+			pstm.setString(6, admin.getSenha());
+			
 			pstm.executeUpdate();
 			pstm.close();	
-			System.out.println("Aluno Adicionado com sucesso");
+			System.out.println("Admin Adicionado com sucesso");
 				
 		} catch (SQLException e) {
-			System.out.println("Erro ao adicionar aluno");
+			System.out.println("Erro ao adicionar Admin");
 			e.printStackTrace();
 		}
 	}
 	
-	public static void updateStudent(Student student) {
+	public static void updateStudent(Admin admin) {
 		
 		
 	}

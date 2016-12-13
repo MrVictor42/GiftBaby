@@ -9,13 +9,5 @@ CREATE TABLE  IF NOT EXISTS Admin (
 	senha VARCHAR(8) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS Responsible (
-	idResponsible INT UNSIGNED PRIMARY KEY NOT NULL auto_increment,
-	passoword VARCHAR(10) ,
-	name VARCHAR(42),
-	dateOfBirth VARCHAR(10),
-	registration VARCHAR(10),
-	cpf VARCHAR(15),
-FOREIGN KEY (registration) REFERENCES Student(registration)
-)
+
 

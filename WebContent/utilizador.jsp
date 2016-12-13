@@ -42,7 +42,7 @@
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12">
 									<div class="form-group">
-										<input type="text" name="endereco" id="enderecoLoja"
+										<input type="text" name="endereco" id="endereco"
 											class="form-control input-sm" placeholder="Endereco da Loja"
 											required>
 									</div>
