@@ -3,12 +3,12 @@ package model;
 
 public class Admin {
 	
-	public String id;
-	public String nome;
-	public String senha;
-	public String enderecoLoja;
-	public String email;
-	public String telefone;
+	private String id;
+	private String nome;
+	private String senha;
+	private String enderecoLoja;
+	private String email;
+	private String telefone;
 
 	public Admin () {
 		

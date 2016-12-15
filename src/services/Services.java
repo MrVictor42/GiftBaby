@@ -1,25 +1,24 @@
 package services;
 
-import java.util.ArrayList;
-
-import dao.AdminDao;
-import model.Admin;
-import model.Publicacao;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class Services {
 	
-	public static ArrayList<Publicacao> publicacoes = new ArrayList<Publicacao>();
-	public static ArrayList<Admin> admins = new ArrayList<Admin>();
+	public static String transformaSenha(String senha) throws NoSuchAlgorithmException {
 	
-	public static void createAdmin (String id,String nome,String senha,String enderecoLoja,String email,String telefone) {
-		
-		Admin admin = new Admin(id,nome,senha,enderecoLoja,email,telefone);
-		System.out.println("CREATE ADMIN");
-		if (admin.getNome() != null && admin.getSenha() != null
-			&& admin.getEnderecoLoja() != null && admin.getEmail() !=null
-			&& admin.getTelefone() != null) {
-			admins.add(admin);
-			AdminDao.insertAdmin(admin);
+		String senhaValida = "";
+		byte[] bytesDaSenha = null;
+		try {
+			bytesDaSenha = senha.getBytes("UTF-8");
+		} catch (UnsupportedEncodingException error) {
+			error.printStackTrace();
 		}
+		MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+		byte[] digest = messageDigest.digest(bytesDaSenha);
+		senhaValida = String.valueOf(digest);
+		
+		return senhaValida;
 	}
 }

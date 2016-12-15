@@ -5,7 +5,7 @@
 
 <html>
 <head>
-<title>Baby Gift</title>
+<title>Baby Gift - Cadastro de Produtos</title>
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,7 +24,7 @@
 						<div id="menu">
 							<ul>
 								<li><a href="#">Todos os Produtos</a></li>
-								<li><a href="cadastrarProduto.jsp">Cadastrar Produtos</a></li>
+								<li><a href="#">Cadastrar Produtos</a></li>
 								<li><a href="#">Editar Produtos</a></li>
 								<li><a href="#">Excluir Produtos</a></li>
 							</ul>
@@ -36,10 +36,13 @@
 
 		<section id="banner">
 			<div class="inner">
-				<h2>BabyGift</h2>
-				<p>
-					Seu bebê merece esse carinho<br />
-				</p>
+				<h2>Cadastrar Produto</h2>
+				<div class="form-group">
+					<label>Descrição</label>
+					<textarea class="form-control" rows="2"
+						name="descricao" id="descricao"
+						placeholder="Escreva uma descrição sobre o produto" required></textarea>
+				</div>
 			</div>
 		</section>
 	</div>

@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.AdminDao;
 import model.Admin;
 import services.Services;
 
@@ -29,24 +31,26 @@ public class CadastrarServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		final String ID = "1";
-		String nome = request.getParameter("nome");
-		System.out.println("Nome: " + nome);
-		String endereco = request.getParameter("endereco");
-		System.out.println("Endereço: " + endereco);
-		String email = request.getParameter("email");
-		System.out.println("Email: " + email);
-		String telefone = request.getParameter("telefone");
-		System.out.println("Telefone: " + telefone);
-		String senha = request.getParameter("senha");
-		System.out.println("Senha: " + senha);
-
 		Admin admin = new Admin();
-		System.out.println("PASSOU AQUI");
-		Services.createAdmin(ID, nome, senha, endereco, email, telefone);
-		this.requestDispatcher = request.getRequestDispatcher("admin.jsp");
-		request.getSession().setAttribute("admin", admin);
-		this.requestDispatcher.forward(request, response);
-
+		final String ID = "1";
+		String senha;
+		
+		try {
+			admin.setId(ID);
+			admin.setNome(request.getParameter("nome")); 
+			admin.setEnderecoLoja(request.getParameter("endereco"));
+			admin.setEmail(request.getParameter("email"));
+			admin.setTelefone(request.getParameter("telefone"));
+			senha = request.getParameter("senha");
+			senha = Services.transformaSenha(senha);
+			admin.setSenha(senha);
+			
+			AdminDao.insertAdmin(admin);
+			this.requestDispatcher = request.getRequestDispatcher("admin.jsp");
+			request.getSession().setAttribute("admin", admin);
+			this.requestDispatcher.forward(request, response);
+		} catch (NoSuchAlgorithmException error) {
+			error.printStackTrace();
+		}
 	}
 }

@@ -9,7 +9,7 @@
 -->
 <html>
 <head>
-<title>Contribute Blog</title>
+<title>GiftBaby</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -23,7 +23,9 @@
 			<h1>
 				<a href="index.jsp">Contribute</a>
 			</h1>
+			
 			<nav id="nav">
+				
 				<ul>
 					<li class="special"><a href="utilizador.jsp" class=""><span>Cadastre-se</span></a>
 					</li>

@@ -1,13 +1,12 @@
+drop database giftbaby;
 CREATE DATABASE IF NOT EXISTS giftbaby;
 USE giftbaby;
 
 CREATE TABLE  IF NOT EXISTS Admin (
+	id VARCHAR(1) PRIMARY KEY NOT NULL,
 	nome VARCHAR(42) NOT NULL,
 	endereco VARCHAR(42) NOT NULL,
-	email VARCHAR(10) NOT NULL,
-	telefone VARCHAR(14) NOT NULL ,
-	senha VARCHAR(8) NOT NULL
+	email VARCHAR(42) NOT NULL,
+	telefone VARCHAR(20) NOT NULL ,
+	senha VARCHAR(20) NOT NULL
 );
-
-
-
