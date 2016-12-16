@@ -2,6 +2,8 @@ package controller;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,43 +16,40 @@ import dao.AdminDao;
 import model.Admin;
 import services.Services;
 
-@WebServlet("/CadastrarServlet")
-public class CadastrarServlet extends HttpServlet {
+@WebServlet("/LoginServlet")
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private RequestDispatcher requestDispatcher;
 
-	public CadastrarServlet() {
+	public LoginServlet() {
 		super();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Admin admin = new Admin();
-		final String ID = "1";
-		String senha;
-		
 		try {
-			admin.setId(ID);
-			admin.setNome(request.getParameter("nome")); 
-			admin.setEnderecoLoja(request.getParameter("endereco"));
-			admin.setEmail(request.getParameter("email"));
-			admin.setTelefone(request.getParameter("telefone"));
-			senha = request.getParameter("senha");
+			List<Admin> admin = new ArrayList<Admin>();
+			admin = AdminDao.listarAdmin();
+			String email = request.getParameter("email");
+			String senha = request.getParameter("senha");
 			senha = Services.transformaSenha(senha);
-			admin.setSenha(senha);
-			
-			AdminDao.insertAdmin(admin);
-			this.requestDispatcher = request.getRequestDispatcher("entrar.jsp");
+			System.out.println("EMAIL : " + admin.get(0).getEmail());
+			System.out.println("SENHA: " + admin.get(0).getSenha());
+			System.out.println(email);
+			System.out.println(senha);
+
+			this.requestDispatcher = request.getRequestDispatcher("admin.jsp");
 			request.getSession().setAttribute("admin", admin);
 			this.requestDispatcher.forward(request, response);
-		} catch (NoSuchAlgorithmException error) {
-			error.printStackTrace();
+
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
 		}
 	}
 }

@@ -30,7 +30,8 @@
 				<div class="inner">
 					<h2>Informações</h2>
 					<p>
-						Contato : ${admin.telefone}<br />
+						Contato : ${admin.get(0).getTelefone()}<br/>
+						Endereço : ${admin.get(0).getEnderecoLoja()}<br/>
 					</p>
 					<p>
 						Seu bebê merece esse carinho<br />

@@ -27,6 +27,7 @@
 								<li><a href="cadastrarProduto.jsp">Cadastrar Produtos</a></li>
 								<li><a href="#">Editar Produtos</a></li>
 								<li><a href="#">Excluir Produtos</a></li>
+								<li><a href="#">Procurar Produto</a></li>
 							</ul>
 						</div></li>
 					<li class="special"><a href="alterarInformacoes.jsp" class=""><span>Informações</span></a>
