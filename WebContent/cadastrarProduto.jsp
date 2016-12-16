@@ -38,10 +38,26 @@
 			<div class="inner">
 				<h2>Cadastrar Produto</h2>
 				<div class="form-group">
+					<label>Nome do Produto</label> <input type="text"
+						name="nomeProduto" id="nomeProduto" class="form-control input-sm"
+						placeholder="Insira o nome do produto" required>
+				</div>
+				<div class="form-group">
+					<label>Tamanho</label> <input type="text" name="tam" id="tam"
+						class="form-control input-sm"
+						placeholder="Insira o tamanho da peça(apenas números)" required>
+				</div>
+				<div class="form-group">
 					<label>Descrição</label>
-					<textarea class="form-control" rows="2"
+					<textarea class="form-control" maxlength="150" rows="3"
 						name="descricao" id="descricao"
-						placeholder="Escreva uma descrição sobre o produto" required></textarea>
+						placeholder="Insira uma descrição sobre a peça" required></textarea>
+				</div>
+				<div class="control-group">
+					<label class="control-label">Foto</label>
+					<div class="controls">
+						<input id="foto" name="foto" class="input-file" type="file">
+					</div>
 				</div>
 			</div>
 		</section>

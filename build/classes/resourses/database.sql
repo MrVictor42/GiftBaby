@@ -1,4 +1,3 @@
-drop database giftbaby;
 CREATE DATABASE IF NOT EXISTS giftbaby;
 USE giftbaby;
 
@@ -10,3 +9,12 @@ CREATE TABLE  IF NOT EXISTS Admin (
 	telefone VARCHAR(20) NOT NULL ,
 	senha VARCHAR(20) NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS Produtos (
+	idPublicacao VARCHAR(4) PRIMARY KEY NOT NULL,
+	nomeProduto VARCHAR(42) NOT NULL,
+	tamanho VARCHAR(42) NOT NULL,
+	descricao VARCHAR(100) NOT NULL,
+	foto longblob NOT NULL
+);
+

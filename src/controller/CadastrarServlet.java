@@ -47,7 +47,6 @@ public class CadastrarServlet extends HttpServlet {
 			
 			AdminDao.insertAdmin(admin);
 			this.requestDispatcher = request.getRequestDispatcher("entrar.jsp");
-			request.getSession().setAttribute("admin", admin);
 			this.requestDispatcher.forward(request, response);
 		} catch (NoSuchAlgorithmException error) {
 			error.printStackTrace();
