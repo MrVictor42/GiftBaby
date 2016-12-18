@@ -1,8 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,15 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.AdminDao;
-import model.Admin;
+import dao.ProdutosDao;
+import model.Produtos;
 
-@WebServlet("/InformacoesServlet")
-public class InformacoesServlet extends HttpServlet {
+@WebServlet("/CadastrarProdutoServlet")
+public class CadastrarProdutoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private RequestDispatcher requestDispatcher;
 	
-    public InformacoesServlet() {
+    public CadastrarProdutoServlet() {
         super();
     }
 
@@ -29,11 +27,16 @@ public class InformacoesServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<Admin> admin = new ArrayList<Admin>();
+		Produtos produtos = new Produtos();
+
+		produtos.setNome(request.getParameter("nomeProduto"));
+		produtos.setTam(request.getParameter("tamanho"));
+		produtos.setPreco(Double.parseDouble(request.getParameter("preco")));
+		produtos.setDescricao(request.getParameter("descricao"));
+		produtos.setImagem(request.getParameter("foto"));
 		
-		admin = AdminDao.listarAdmin();
-		request.setAttribute("adminInformacoes", admin);
-		this.requestDispatcher = request.getRequestDispatcher("informacoes.jsp");
+		ProdutosDao.inserirProduto(produtos);
+		this.requestDispatcher = request.getRequestDispatcher("admin.jsp");
 		this.requestDispatcher.forward(request, response);
 	}
 }

@@ -29,7 +29,7 @@
 						<h3 class="panel-title">Alterar Informações do Administrador</h3>
 					</div>
 					<div class="panel-body">
-						<form role="form" method="post" action="ServletAdmin">
+						<form role="form" method="post" action="">
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12">
 									<div class="form-group">

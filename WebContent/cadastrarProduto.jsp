@@ -1,74 +1,85 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE HTML>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="assets/css/utilizador.css" rel="stylesheet">
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/utilizador.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css"
+	rel="stylesheet" />
 <head>
-<title>Baby Gift - Cadastro de Produtos</title>
-
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="assets/css/main.css" />
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Gift Baby - Cadastrar Produto</title>
 </head>
-<body class="landing">
-	<div id="page-wrapper">
-		<header id="header" class="alt">
-			<h1>
-				<a href="index.jsp">GiftBaby</a>
-			</h1>
-			<nav id="nav">
-				<ul>
-					<li><a href="#menu" class="menuToggle"><span>Produtos</span></a>
-						<div id="menu">
-							<ul>
-								<li><a href="#">Todos os Produtos</a></li>
-								<li><a href="#">Cadastrar Produtos</a></li>
-								<li><a href="#">Editar Produtos</a></li>
-								<li><a href="#">Excluir Produtos</a></li>
-							</ul>
-						</div></li>
-					<li class="special"><a href="alterarInformacoes.jsp" class=""><span>Informações</span></a>
-				</ul>
-			</nav>
-		</header>
-
-		<section id="banner">
-			<div class="inner">
-				<h2>Cadastrar Produto</h2>
-				<div class="form-group">
-					<label>Nome do Produto</label> <input type="text"
-						name="nomeProduto" id="nomeProduto" class="form-control input-sm"
-						placeholder="Insira o nome do produto" required>
-				</div>
-				<div class="form-group">
-					<label>Tamanho</label> <input type="text" name="tam" id="tam"
-						class="form-control input-sm"
-						placeholder="Insira o tamanho da peça(apenas números)" required>
-				</div>
-				<div class="form-group">
-					<label>Descrição</label>
-					<textarea class="form-control" maxlength="150" rows="3"
-						name="descricao" id="descricao"
-						placeholder="Insira uma descrição sobre a peça" required></textarea>
-				</div>
-				<div class="control-group">
-					<label class="control-label">Foto</label>
-					<div class="controls">
-						<input id="foto" name="foto" class="input-file" type="file">
+<body background="images/cinza.png" bgproperties="fixed">
+	<div class="container">
+		<div class="row centered-form">
+			<div
+				class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Cadastrar Produto</h3>
+					</div>
+					<div class="panel-body">
+						<form action="CadastrarProdutoServlet" method="post" accept-charset="UTF-8" role="form">
+							<div class="form-group">
+								<input type="hidden" id="idPublicacao">
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12">
+									<div class="form-group">
+										<label>Nome do Produto</label> <input type="text"
+											name="nomeProduto" id="nomeProduto"
+											class="form-control input-sm"
+											placeholder="Insira o nome do produto" required>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<label>Tamanho</label> <input type="number" name="tamanho"
+											id="tamanho" class="form-control input-sm"
+											placeholder="Apenas números" required>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<label>Preço</label> <input type="number" name="preco"
+											id="preco" class="form-control input-sm"
+											placeholder="Apenas números" required>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-xs-12 col-sm-12 col-md-12">
+										<label>Descrição</label>
+										<textarea class="form-control" maxlength="150" rows="3"
+											name="descricao" id="descricao"
+											placeholder="Insira uma descrição sobre a peça" required></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">Foto</label>
+								<div class="controls">
+									<input id="foto" name="foto" class="input-file" type="file">
+								</div>
+							</div>
+							<input type="submit" value="Salvar Produto"
+								class="btn btn-info btn-block">
+						</form>
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
 	</div>
-
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/skel.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
 </body>
 </html>
