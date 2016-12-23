@@ -1,3 +1,6 @@
+<%@page import="model.Admin"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.AdminDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -29,24 +32,22 @@
 		<section id="banner">
 			<div class="inner">
 				<h2>Informações</h2>
-				<tr>
-					<p>
-						<th>Contato : <br />
-						<th>
-						<th>Endereço : <br />
-						<th>
-					</p>
-				</tr>
+				<p>
+					<%
+						AdminDao adminDao = new AdminDao();
+						List<Admin> admins = adminDao.listarAdmin();
+						for (int aux = 0; aux < admins.size(); aux++) {
+					%>
+					Contato : <%=admins.get(aux).getTelefone()%><br /> 
+					Endereço : <%=admins.get(aux).getEnderecoLoja()%><br />
+				</p>
+				<%
+					}
+				%>
 				<p>
 					Seu bebê merece esse carinho<br />
 				</p>
 			</div>
-			<c:forEach var="adminInformacoes" items="${adminInformacoes}">
-				<tr>
-					<td>${adminInformacoes.telefone}</td>
-					<td>${adminInformacoes.enderecoLoja}</td>
-				</tr>
-			</c:forEach>
 		</section>
 	</div>
 
