@@ -29,7 +29,7 @@
 						<h3 class="panel-title">Alterar Informações do Administrador</h3>
 					</div>
 					<div class="panel-body">
-						<form role="form" method="post" action="">
+						<form role="form" method="post" action="AlterarInformacoesServlet">
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12">
 									<div class="form-group">
@@ -42,7 +42,7 @@
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12">
 									<div class="form-group">
-										<input type="text" name="endereco" id="enderecoLoja"
+										<input type="text" name="enderecoLoja" id="enderecoLoja"
 											class="form-control input-sm" placeholder="Endereco da Loja"
 											required>
 									</div>
@@ -59,6 +59,16 @@
 									class="form-control input-sm"
 									"
 									placeholder="Telefone: (XX) XXXXX-XXXX" required>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12">
+									<div class="form-group">
+										<input type="password" name="senha" id="senha"
+											class="form-control input-sm" placeholder="Senha"
+											pattern=".{5,}"
+											title="Deve possuir no mínimo cinco caracteres" required>
+									</div>
+								</div>
 							</div>
 							<input type="submit" value="Alterar Informações"
 								class="btn btn-info btn-block">

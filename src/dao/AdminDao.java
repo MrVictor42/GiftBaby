@@ -55,13 +55,12 @@ public class AdminDao extends ConnectionFactory {
 		try {
 			connection = AdminDao.getConexaoMySQL();
 			PreparedStatement pstm = connection.prepareStatement(
-					"UPDATE Admin nome=?, endereco=?, email=?, telefone=?, senha=? WHERE id=?");
+					"UPDATE Admin SET nome=?, endereco=?, email=?, telefone=?, senha=? WHERE id=?");
 			pstm.setString(1, admin.getNome());
 			pstm.setString(2, admin.getEnderecoLoja());
 			pstm.setString(3, admin.getEmail());
 			pstm.setString(4, admin.getTelefone());
 			pstm.setString(5, admin.getSenha());
-
 			pstm.setString(6, id);
 
 			pstm.execute();

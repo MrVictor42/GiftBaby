@@ -38,15 +38,14 @@
 						List<Admin> admins = adminDao.listarAdmin();
 						for (int aux = 0; aux < admins.size(); aux++) {
 					%>
+					Nome do Proprietário : <%=admins.get(aux).getNome() %><br/>
 					Contato : <%=admins.get(aux).getTelefone()%><br /> 
-					Endereço : <%=admins.get(aux).getEnderecoLoja()%><br />
+					Endereço da Loja: <%=admins.get(aux).getEnderecoLoja()%><br />
+					Email para contato : <%=admins.get(aux).getEmail() %><br />
 				</p>
 				<%
 					}
 				%>
-				<p>
-					Seu bebê merece esse carinho<br />
-				</p>
 			</div>
 		</section>
 	</div>

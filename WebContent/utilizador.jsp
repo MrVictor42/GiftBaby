@@ -57,7 +57,6 @@
 							<div class="form-group">
 								<input type="number" name="telefone" id="telefone"
 									class="form-control input-sm"
-									"
 									placeholder="Telefone: (XX) XXXXX-XXXX" required>
 							</div>
 							<div class="row">
