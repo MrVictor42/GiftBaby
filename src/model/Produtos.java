@@ -1,5 +1,7 @@
 package model;
 
+import org.apache.tomcat.util.http.fileupload.FileItem;
+
 public class Produtos {
 	
 	private int idPublicacao;
@@ -7,21 +9,31 @@ public class Produtos {
 	private String tam;
 	private Double preco;
 	private String descricao;
-	private String imagem;
+	private FileItem imagemFile;
+	private byte[] imagemByte;
 
 	public Produtos () {
 		
 	}
 	
-	public Produtos(int idPublicacao,String nome,String tam,Double preco,String descricao,String imagem) {
+	public Produtos(int idPublicacao,String nome,String tam,Double preco,String descricao,FileItem imagemFile,byte[] imagemByte) {
 		setIdPublicacao(idPublicacao);
 		setNome(nome);
 		setTam(tam);
 		setPreco(preco);
 		setDescricao(descricao);
-		setImagem(imagem);
+		setImagemFile(imagemFile);
+		setImagemByte(imagemByte);
 	}
 	
+	public byte[] getImagemByte() {
+		return imagemByte;
+	}
+
+	public void setImagemByte(byte[] imagemByte) {
+		this.imagemByte = imagemByte;
+	}
+
 	public int getIdPublicacao() {
 		return idPublicacao;
 	}
@@ -61,12 +73,14 @@ public class Produtos {
 	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
-	
-	public String getImagem() {
-		return imagem;
+
+	public FileItem getImagemFile() {
+		return imagemFile;
 	}
 
-	public void setImagem(String string) {
-		this.imagem = string;
+	public void setImagemFile(FileItem imagemFile) {
+		this.imagemFile = imagemFile;
 	}
+	
+	
 }

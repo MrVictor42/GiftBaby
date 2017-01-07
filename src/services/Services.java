@@ -6,18 +6,16 @@ import java.security.NoSuchAlgorithmException;
 
 public class Services {
 	
-	public static String transformaSenha(String senha) throws NoSuchAlgorithmException {
+	public static String transformaSenha(String senha) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 	
-		String senhaValida = "";
-		byte[] bytesDaSenha = null;
-		try {
-			bytesDaSenha = senha.getBytes("UTF-8");
-		} catch (UnsupportedEncodingException error) {
-			error.printStackTrace();
+		MessageDigest algorithm = MessageDigest.getInstance("SHA-256");
+		byte messageDigest[] = algorithm.digest(senha.getBytes("UTF-8"));
+		 
+		StringBuilder hexString = new StringBuilder();
+		for (byte b : messageDigest) {
+		  hexString.append(String.format("%02X", 0xFF & b));
 		}
-		MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-		byte[] digest = messageDigest.digest(bytesDaSenha);
-		senhaValida = String.valueOf(digest);
+		String senhaValida = hexString.toString();
 		
 		return senhaValida;
 	}

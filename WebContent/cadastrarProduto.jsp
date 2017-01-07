@@ -29,7 +29,7 @@
 						<h3 class="panel-title">Cadastrar Produto</h3>
 					</div>
 					<div class="panel-body">
-						<form action="CadastrarProdutoServlet" method="post" accept-charset="UTF-8" role="form">
+						<form action="CadastrarProdutoServlet" id = "formCadastra" method="post" enctype="multipart/form-data">
 							<div class="form-group">
 								<input type="hidden" id="idPublicacao">
 							</div>

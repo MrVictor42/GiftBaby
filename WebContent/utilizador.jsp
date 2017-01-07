@@ -55,9 +55,10 @@
 									placeholder="Email: exemplo@exemplo.com" required>
 							</div>
 							<div class="form-group">
-								<input type="number" name="telefone" id="telefone"
+								<input type="text" name="telefone" id="telefone"
 									class="form-control input-sm"
-									placeholder="Telefone: (XX) XXXXX-XXXX" required>
+									placeholder="Telefone: (XX) XXXXX-XXXX" required
+									data-mask="(00) 0000-0000" data-mask-selectonfocus="true"/>
 							</div>
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12">
